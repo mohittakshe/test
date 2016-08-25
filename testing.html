@@ -1,0 +1,34 @@
+<html>
+<head>
+<script language="JavaScript" type="text/javascript" src="cookies.js"></script>
+</head>
+
+<body>
+
+<form name="form1" action="next.html" method="get">
+name:<input type ="text" id="name" name="n">
+<input type="submit" value="next" >
+<button type="button" id="print" onClick="testJS()"> Print </button>
+<script type="text/javascript">
+function testJS() {
+
+    var data = document.getElementById('name').value;
+    var expDate = getExpDate(180, 0, 0);
+    setCookie("userName", data, expDate);
+    url='next.html';
+    document.location.href=url;
+
+	// var a=document.getElementById('name').value;
+	// localStorage["key"] = a;
+
+
+    // var b = document.getElementById('name').value,
+    //     url = 'next.html?name=' + encodeURIComponent(b);
+
+    // document.location.href = url;
+}
+</script>
+</form>
+
+</body>
+</html>

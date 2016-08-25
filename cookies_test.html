@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<script type="text/javascript">
+		function WriteCookie()
+		{
+			// var g=document.getElementById("customer").value+"="+document.getElementById("customermail").value+"="+document.getElementById("customernumber").value;
+			var g=document.getElementById("customer").value;
+			var h=document.getElementById("customernumber").value;
+			var i=document.getElementById("customermail").value;
+			var k1=Date();
+			// var g11=[];
+			// var h11=[];
+			// var i11=[];
+			// var k111=[];
+			// g11.push(g);
+			// h11.push(h);
+			// i11.push(i);
+			// k111.push(k1);
+			if(document.cookie.indexOf("Heading")==-1)
+			{
+			
+			var obj= [{"Publisher":g, "Heading":h, "Content":i, "Date":k1}];
+			var json_str=JSON.stringify(obj);
+			cookievalue=json_str;
+			document.cookie=cookievalue;
+			console.log(document.cookie);
+			
+
+			}
+			else
+			{
+				var obj1= {"Publisher":g, "Heading":h, "Content":i, "Date":k1};
+				var allcookies=document.cookie;
+				var arr2=JSON.parse(allcookies);
+				arr2.push(obj1);
+				var json_str1=JSON.stringify(arr2);
+				cookievalue1=json_str1;
+				document.cookie=cookievalue1;
+				console.log(document.cookie);
+
+			}	
+
+			// var arr=[g,h,i,k1];
+			// //var arr2=[g,h,i,k1];
+			// arr.push[arr];
+
+			// var json_str=JSON.stringify(arr);
+			// var json_strarr=[];
+			// var json_parse=JSON.parse(json_str);
+			// json_strarr.push[json_parse];
+			// // var arr2=JSON.parse(json_str);
+			// // console.log(arr2);
+			// // cookievalue=escape(g)+";"+escape(h)+";"+escape(i)+";";
+			// var json_stri=JSON.stringify(json_strarr);
+			// cookievalue=json_stri;
+
+			// //cookievalue=escape("Name="+g+";"+"Number="+h+";"+"Mail="+i+";"+"Date="+k1+";");
+			// console.log(json_stri);
+
+			
+
+			// cookievalue1=escape(g)+";";
+			// cookievalue2=escape(h)+";";
+			// cookievalue3=escape(i)+";";
+			// cookievalue=cookievalue1+cookievalue2+cookievalue3;
+			//document.cookie=cookievalue;
+
+			//console.log(unescape(cookievalue));
+			
+			window.location="cookies_test2.html";
+
+}
+	</script>
+
+</head>
+<body>
+<form name="myform">
+	enter name:<input type="text" name="customer" id="customer">
+	enter name:<input type="text" name="customernumber" id="customernumber">
+	enter name:<input type="text" name="customermail" id="customermail">
+	<input type="button" value="Set Cookie" name="Setcookie" onclick="WriteCookie()">
+</form>
+</body>
+</html>

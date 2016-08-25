@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	function Readcookie()
+	{
+		
+// 		var allcookies=unescape(document.cookie);
+		
+// 		console.log(allcookies);
+// 		// document.write("All cookies:"+allcookies);
+//  		cookiearray2=allcookies.split(';');
+//  		for(var i2=0;i2<cookiearray2.length;i2++){
+//  			// name=cookiearray2[i2].split('=')[0];
+//  			// number=cookiearray2[i2].split('=')[1];
+//  			// mail=cookiearray2[i2].split('=')[2];
+ 			
+//  			//document.write(name+""+number+""+mail);
+//  			 //console.log(name+""+number+""+mail);
+// 			}
+// 			console.log(cookiearray2[0].split("=")[1]);
+//  			console.log(cookiearray2[1].split("=")[1]);
+//  			console.log(cookiearray2[2].split("=")[1]);
+//  			console.log(cookiearray2[3].split("=")[1]);
+// // 		console.log(name+number+mail);
+		
+		var allcookies=document.cookie;
+		arr2=JSON.parse(allcookies);
+		console.log(allcookies);
+		//console.log(arr2[0]);
+		//console.log(arr2[1]);
+		//console.log(arr2[2]);
+		//console.log(arr2[3]);
+
+		for(i=0;i<arr2.length;i++)
+		{
+			// var node = document.createElement("DIV");                 
+			// var textnode = document.createTextNode("Article No."+i);        
+			// node.appendChild(textnode);                              
+			// document.getElementById("parent").appendChild(node);     
+
+			var node1=document.createElement("Div");
+			var textnode1=document.createTextNode(arr2[i].Publisher);
+			node1.appendChild(textnode1);
+			document.getElementById("parent").appendChild(node1);
+
+			var node2=document.createElement("Div");
+			var textnode2=document.createTextNode(arr2[i].Heading);
+			node2.appendChild(textnode2);
+			document.getElementById("parent").appendChild(node2);
+
+			var node3=document.createElement("Div");
+			var textnode3=document.createTextNode(arr2[i].Content);
+			node3.appendChild(textnode3);
+			document.getElementById("parent").appendChild(node3);
+
+			var node4=document.createElement("Div");
+			var textnode4=document.createTextNode(arr2[i].Date);
+			node4.appendChild(textnode4);
+			document.getElementById("parent").appendChild(node4);
+			// var idiv1=document.createElement('div');
+			// var idiv2=document.createElement('div');
+			// var idiv3=document.createElement('div');
+			// var idiv4=document.createElement('div');
+		//	var p101=document.createTextNode(arr2[i.Publisher]);
+			
+			// idiv1.id='blocka'+i;
+			// idiv2.id='blockb'+i;
+			// idiv3.id='blockc'+i;
+			// idiv4.id='blockd'+i;
+		  //document.getElementById("parent")[i].appendChild("blocka");
+		  // document.getElementById("parent")[i].appendChild("blocka"+i);
+		  // document.getElementById("parent")[i].appendChild("blockb"+i);
+		  // document.getElementById("parent")[i].appendChild("blockc"+i);
+		  // document.getElementById("parent")[i].appendChild("blockd"+i);
+		 
+		  // document.getElementById('blocka').innerHTML=arr2[i].Publisher;
+		  // document.getElementById('blockb').innerHTML=arr2[i].Heading;
+		  // document.getElementById('blockc').innerHTML=arr2[i].Content;
+		  // document.getElementById('blockd').innerHTML=arr2[i].Date;
+		}
+
+	}
+
+	function search()
+{
+    var d=document.getElementById("textbox4").value;
+    var re=new RegExp(d);
+    
+       var ak=[];
+    for(var j=0;j<arr2.length;j++)
+    {
+        ak.push({"Publisher":arr2[j].Publisher, "Heading":arr2[j].Heading, "Content":arr2[j].Content});
+      	console.log(ak);
+    }
+    var elem = document.getElementById("parent");
+	elem.parentElement.removeChild(elem);
+	var d=document.getElementById("textbox4").value;
+    var re=new RegExp(d);
+    
+    var node = document.createElement("DIV");
+	document.getElementById("body").appendChild(node);
+	node.id="parent";
+	for(k1=0;k1<ak.length;k1++)
+	{
+		console.log(ak[k1].Publisher);
+		if (ak[k1].Publisher.match(re) || ak[k1].Heading.match(re) || ak[k1].Content.match(re))
+		{
+			console.log("hell");
+			var node1=document.createElement("Div");
+			var textnode1=document.createTextNode(ak[k1].Publisher);
+			node1.appendChild(textnode1);
+			document.getElementById("parent").appendChild(node1);
+
+			var node2=document.createElement("Div");
+			var textnode2=document.createTextNode(ak[k1].Heading);
+			node2.appendChild(textnode2);
+			document.getElementById("parent").appendChild(node2);
+
+			var node3=document.createElement("Div");
+			var textnode3=document.createTextNode(ak[k1].Content);
+			node3.appendChild(textnode3);
+			document.getElementById("parent").appendChild(node3);
+
+			var node4=document.createElement("Div");
+			var textnode4=document.createTextNode(ak[k1].Date);
+			node4.appendChild(textnode4);
+			document.getElementById("parent").appendChild(node4);
+		}
+	}
+
+
+}
+	function aaa()
+	{
+		var a="name=tanvee,age=23;name=Mohit,age=22;name=Rohit,Age=35";
+		cookiearray=a.split(';');
+		// console.log(cookiearray);
+		for(var i=0;i<cookiearray.length;i++){
+			// name=cookiearray[i].split(',')[0];
+			// console.log(cookiearray);
+			{
+				console.log(cookiearray[i].split(",")[0].split("=")[1]);
+				console.log(cookiearray[i].split(",")[1].split("=")[1]);
+
+
+			}
+			// for(var j=0;j<name.length;j++)
+			// {
+			// 	name2=name[j].split('=')[1];
+			// }
+			// name4=cookiearray[i].split(',')[1];
+			// for(var k=0;k<cookiearray[i].split(',').length;k++)
+			// {
+			
+			// 	// name3=name4[k].split('=')[1];
+			// console.log(cookiearray[i].split(',')[k].split("=")[1]);
+			// }
+			
+
+			// number=cookiearray[i].split('=')[2];
+			// mail=cookiearray[i].split('=')[3];
+			// console.log(cookiearray[i]);
+			// console.log(name);
+			 // console.log(name2[1]);
+			 
+}
+			// document.write(name+""+number+""+mail);
+
+	}
+	</script>
+</head>
+<body id="body">
+<form name="myform" action="">
+<p>
+cick
+</p>
+<input type="button" value="get cookies" onclick="Readcookie()">
+<div id="parent">
+</div>
+<input type="text" id="textbox4" onchange="search()">
+<br>
+
+</form>
+</body>
+</html>
